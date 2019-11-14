@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/contenido', function () {
+    return view('contenido/index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
