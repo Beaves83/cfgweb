@@ -43,7 +43,7 @@ class User extends Authenticatable {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
     
-     public function posts() {
+    public function posts() {
         return $this->belongsToMany(Contenido::class)->withTimestamps();
     }
 
