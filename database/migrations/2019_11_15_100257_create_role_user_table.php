@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-//Tipo de contneido: revista,a analisis,....
-class CreateTipocontenidosTable extends Migration
-{
+class CreateRoleUserTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('tipocontenido', function (Blueprint $table) {
+    public function up() {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('texto')->comment('Analisis, Reviews,....');
+            $table->unsignedInteger('role_id');
+            $table->unsignedInteger('user_id');
+
             $table->timestamps();
         });
     }
@@ -26,8 +26,8 @@ class CreateTipocontenidosTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('tipocontenido');
+    public function down() {
+        Schema::dropIfExists('role_user');
     }
+
 }

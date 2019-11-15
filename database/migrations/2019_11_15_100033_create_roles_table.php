@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-//Tipo de enlaces de la revista: online, pdf pequeño, pdf grande
-class CreateTipoenlacesTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +13,11 @@ class CreateTipoenlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipoenlaces', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('texto')->comment('Online, version movil, version pc');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
-            
-            
         });
     }
 
@@ -30,6 +28,6 @@ class CreateTipoenlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoenlaces');
+        Schema::dropIfExists('roles');
     }
 }

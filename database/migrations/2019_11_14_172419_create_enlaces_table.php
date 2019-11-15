@@ -16,7 +16,13 @@ class CreateEnlacesTable extends Migration
     {
         Schema::create('enlaces', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('link')->comment('Ruta al recurso.');
+            $table->unsignedBigInteger('revista_id');
+            $table->unsignedBigInteger('tipoenlace_id');
             $table->timestamps();
+            
+            $table->foreign('revista_id')->references('id')->on('contenido');
+            $table->foreign('tipoenlace_id')->references('id')->on('tipoenlaces');
         });
     }
 
@@ -28,5 +34,8 @@ class CreateEnlacesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('enlaces');
+        
+//        $table->foreign('tipoenlace_id')->references('id')->on('tipoenlaces')
+//        ->onDelete('cascade');
     }
 }
