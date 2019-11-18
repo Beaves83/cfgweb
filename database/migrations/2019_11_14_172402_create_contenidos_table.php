@@ -17,17 +17,19 @@ class CreateContenidosTable extends Migration
         Schema::create('contenidos', function (Blueprint $table) {
             $table->bigIncrements('id');     
             $table->boolean('destacado')->default(false);
-            $table->string('introduccion');
-            $table->string('titular')->nullable();
-            $table->string('titulo');       
+            $table->string('introduccion',5000);
+            $table->string('titular', 500)->nullable();
+            $table->string('titulo',500);       
             $table->double('nota', 8, 2)->nullable()->comment('Solo necesario si es un análisis.');  
-            $table->string('texto')->nullable();
+            $table->string('texto',10000)->nullable();
             $table->unsignedBigInteger('tipocontenido_id');
             $table->unsignedBigInteger('imagen_id')->nullable();
+            $table->unsignedBigInteger('autor_id');
             $table->timestamps();
             
             $table->foreign('tipocontenido_id')->references('id')->on('tipocontenido');
             $table->foreign('imagen_id')->references('id')->on('imagenes');
+            $table->foreign('autor_id')->references('id')->on('users');
 
         });
     }
