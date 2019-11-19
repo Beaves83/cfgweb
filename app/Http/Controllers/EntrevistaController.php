@@ -12,9 +12,9 @@ class EntrevistaController extends Controller
      *
      * @return 
      */
-    public function index() {
-        $contenidos = Contenido::listado(3);
-        
-        return view('contenido.index', compact(['contenidos']));
-    }
+//    public function index() {
+//        $contenidos = Contenido::listado(3);
+//        
+//        return view('contenido.index', compact(['contenidos']));
+//    }
 }

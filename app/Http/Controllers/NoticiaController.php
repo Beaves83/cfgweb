@@ -12,9 +12,9 @@ class NoticiaController extends Controller
      *
      * @return 
      */
-    public function index() {
-        $contenidos = Contenido::listado(5);
-        
-        return view('contenido.index', compact(['contenidos']));
-    }
+//    public function index() {
+//        $contenidos = Contenido::listado(5);
+//        
+//        return view('contenido.index', compact(['contenidos']));
+//    }
 }
