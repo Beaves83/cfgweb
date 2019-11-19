@@ -20,13 +20,14 @@
                     @foreach($contenidos as $item => $value)
                     <tr>      
                         <td>
-                            <h3 class="text-justify">{{ $value->titulo }}</h3>               
+                            <a href="{{ URL::to('contenidos/elemento/' . $value->id) }}" class="text-right"><h3 class="text-justify">{{ $value->titulo }}</h3></a>               
                             <p class="text-center" class="text-justify">IMAGEN</p>
                             <p class="text-center small"> <strong>Autor:</strong>  {{ $value->username }} 
                                 <strong>Fecha:</strong>  {{ date('d-M-y', strtotime($value->created_at)) }}
                               <strong>Categoría:</strong>  {{ $value->categoria }}
                                 <strong>Visto:</strong>  {{ $value->visto }} veces</p>
                             <p class="text-justify">{{ $value->introduccion }}</p> 
+                            <p class="text-right">@include('includes.socialnetwork')</p>
                             <a href="{{ URL::to('contenidos/elemento/' . $value->id) }}" class="text-right"><p class="text-left">Leer más...</p> </a>
 <!--                            <hr>-->
                         </td>

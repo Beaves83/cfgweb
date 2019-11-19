@@ -18,6 +18,7 @@
                         <strong>Visto:</strong>  {{ $item->visto }} veces</p>
                    <p class="text-justify">{{ $item->introduccion }}</p> 
                    <p class="text-justify">{{ $item->texto }}</p>
+                   <p class="text-right">@include('includes.socialnetwork')</p>
             </div>
         </div>
         <div class="mask flex-center rgba-blue-strong">

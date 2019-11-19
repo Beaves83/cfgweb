@@ -1,20 +1,20 @@
 <div class="col-md-2 col-xs-12">
     <div class="container">
-        <div class="" style=""> 
-            <img src="https://www.macobserver.com/wp-content/uploads/2017/10/code-2434271_1280.jpg" class="img-thumbnail text-center" alt="Cinque Terre" width="304" height="236"> 
-            <h3>John Smith
-<!--                <small>Job Title</small>-->
-            </h3>
-            <p class="text-justify">What does this team member to? Keep it short! This is also a great spot for social links!</p>
-            <button type="button" class="btn btn-default btn-block">Learn More</button>
-        </div>
-        <div class="" style=""> 
-            <img src="https://previews.123rf.com/images/kirisa99/kirisa991706/kirisa99170600021/79526906-programming-code-abstract-screen-of-software-developer-computer-code-development-.jpg" class="img-thumbnail text-center" alt="Cinque Terre" width="304" height="236"> 
-            <h3>John Smith
-<!--                <small>Job Title</small>-->
-            </h3>
-            <p class="text-justify">What does this team member to? Keep it short! This is also a great spot for social links!</p>
-            <button type="button" class="btn btn-default btn-block">Learn More</button>
+        <div class="mt-5" style=""> 
+            <h5 class="text-left">Info CFG</h5>
+            
+            <a href="{{ URL::to('popular/articulos/' . $value->id) }}" class="text-right">
+                <h6 class="text-left">El comienzo <!--<small>Job Title</small>--></h6>
+            </a>
+            <a href="{{ URL::to('popular/articulos/' . $value->id) }}" class="text-right">
+                <h6 class="text-left">Nuestros logros <!--<small>Job Title</small>--></h6>
+            </a>
+            <a href="{{ URL::to('popular/articulos/' . $value->id) }}" class="text-right">
+                <h6 class="text-left">Contacto <!--<small>Job Title</small>--></h6>
+            </a>
+            <a href="{{ URL::to('popular/articulos/' . $value->id) }}" class="text-right">
+                <h6 class="text-left">Sobre nosotros <!--<small>Job Title</small>--></h6>
+            </a>
         </div>
     </div>
 </div>
