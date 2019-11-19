@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoContenidosTableSeeder::class);
         $this->call(TipoEnlacesTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(EtiquetaTableSeeder::class);
     }
 }

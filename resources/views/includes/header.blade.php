@@ -65,6 +65,9 @@
                         <!--                                    <div class="dropdown-divider"></div>-->
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('estadisticas') }}">Estadisticas</a>
+                </li>
                 @endif
                 @endif
                 @endguest

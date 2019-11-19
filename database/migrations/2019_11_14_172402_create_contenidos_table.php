@@ -25,6 +25,7 @@ class CreateContenidosTable extends Migration
             $table->unsignedBigInteger('tipocontenido_id');
             $table->unsignedBigInteger('imagen_id')->nullable();
             $table->unsignedBigInteger('autor_id');
+            $table->unsignedBigInteger('visto')->default(0);
             $table->timestamps();
             
             $table->foreign('tipocontenido_id')->references('id')->on('tipocontenido');

@@ -18,11 +18,11 @@ class TipoContenidosTableSeeder extends Seeder
        $tipocontenido->save();
        
        $tipocontenido = new Tipocontenido();
-       $tipocontenido->texto = 'Review';
+       $tipocontenido->texto = 'Preview';
        $tipocontenido->save();
        
        $tipocontenido = new Tipocontenido();
-       $tipocontenido->texto = 'Reportaje';
+       $tipocontenido->texto = 'Entrevista';
        $tipocontenido->save();
        
        $tipocontenido = new Tipocontenido();
