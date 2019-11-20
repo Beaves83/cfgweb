@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Contenido extends Model
 {
@@ -12,10 +13,12 @@ class Contenido extends Model
         $listado = DB::table('contenidos')
                 ->join('users', 'users.id', '=', 'contenidos.autor_id')
                 ->join('tipocontenido', 'tipocontenido.id', '=', 'contenidos.tipocontenido_id')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.destacado', '=', true]
                 ])
-                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria')
+                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
+                        ,'imagenes.descripcion AS imagen')
                 ->get();
         return $listado;
     }
@@ -24,10 +27,12 @@ class Contenido extends Model
         $listado = DB::table('contenidos')
                 ->join('users', 'users.id', '=', 'contenidos.autor_id')
                 ->join('tipocontenido', 'tipocontenido.id', '=', 'contenidos.tipocontenido_id')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.tipocontenido_id', '=', $tipocontenido_id]
                 ])
-                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria')
+                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
+                        ,'imagenes.descripcion AS imagen')
                 ->get();
         return $listado;
     }
@@ -36,10 +41,12 @@ class Contenido extends Model
         $listado = DB::table('contenidos')
                 ->join('users', 'users.id', '=', 'contenidos.autor_id')
                 ->join('tipocontenido', 'tipocontenido.id', '=', 'contenidos.tipocontenido_id')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.id', '=', $id]
                 ])
-                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria')
+                ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
+                        ,'imagenes.descripcion AS imagen')
                 ->get();
         //Actualizamos el número de vista del contenido
         Contenido::actualizarVistas($id);
@@ -57,6 +64,45 @@ class Contenido extends Model
         DB::table('contenidos')
             ->where('id', $id)
             ->update(['visto' => $vistasActuales]);
+    }
+    
+    public static function ultimoElemento($tipocontenido) {
+        $listado = DB::table('contenidos')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
+                ->where([
+                    ['contenidos.tipocontenido_id', '=', $tipocontenido],
+                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)]
+                ])
+                ->orderBy('id', 'desc')
+                ->select('contenidos.*','imagenes.descripcion AS imagen')
+                ->get();
+        return $listado[0];
+    }
+    
+    public static function masvisto($tipocontenido) {
+        $listado = DB::table('contenidos')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
+                ->where([
+                    ['contenidos.tipocontenido_id', '=', $tipocontenido],
+                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)]
+                ])
+                ->orderBy('visto', 'desc')
+                ->select('contenidos.*','imagenes.descripcion AS imagen')
+                ->get();
+        return $listado[0];
+    }
+    
+    public static function articulosmasvistos() {
+        $listado = DB::table('contenidos')
+                ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
+                ->where([
+                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)],
+                ])
+                ->orderBy('visto', 'desc')
+                ->select('contenidos.*','imagenes.descripcion AS imagen')
+                ->take(5)
+                ->get();
+        return $listado;
     }
       
     public function tipocontenido() {

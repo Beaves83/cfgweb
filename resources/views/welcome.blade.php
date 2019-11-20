@@ -21,7 +21,10 @@
                     <tr>      
                         <td>
                             <a href="{{ URL::to('contenidos/elemento/' . $value->id) }}" class="text-right"><h3 class="text-justify">{{ $value->titulo }}</h3></a>               
-                            <p class="text-center" class="text-justify">IMAGEN</p>
+                            <p class="text-center" class="text-justify">
+                                <img src="{{ $value->imagen }}" 
+                                class="img-thumbnail text-center" alt="imagen" width="500" height="300">
+                            </p>
                             <p class="text-center small"> <strong>Autor:</strong>  {{ $value->username }} 
                                 <strong>Fecha:</strong>  {{ date('d-M-y', strtotime($value->created_at)) }}
                               <strong>Categoría:</strong>  {{ $value->categoria }}

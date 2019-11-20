@@ -3,52 +3,64 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Input;
 use App\Contenido;
-use App\Cliente;
 
-class ContenidoController extends Controller
+class InfoController extends Controller
 {
-    public function welcome() {
-        
-        $contenidos = Contenido::destacado();  
-        $ultimonumero = Contenido::ultimoElemento(4);
-        $analisismasvisto = Contenido::masvisto(1);
-        $previewmasvisto = Contenido::masvisto(2);
-        $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('welcome', compact(['contenidos','ultimonumero'
-            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
-    }
     /**
      * 
      *
      * @return 
      */
-    public function index($id) {
-        
-        $contenidos = Contenido::listado($id); 
+    public function about() {
         $ultimonumero = Contenido::ultimoElemento(4);
         $analisismasvisto = Contenido::masvisto(1);
         $previewmasvisto = Contenido::masvisto(2);
         $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('welcome', compact(['contenidos','ultimonumero'
+        return view('info.about', compact(['item','ultimonumero'
+            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+
+    }
+    
+    /**
+     * 
+     *
+     * @return 
+     */
+    public function archievements() {
+        $ultimonumero = Contenido::ultimoElemento(4);
+        $analisismasvisto = Contenido::masvisto(1);
+        $previewmasvisto = Contenido::masvisto(2);
+        $articulosmasvistos = Contenido::articulosmasvistos();
+        return view('info.archievements', compact(['item','ultimonumero'
             ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
     }
     
     /**
-     * Show the specified resource.
+     * 
      *
-     * @param  int $id
-     * @return a view.
+     * @return 
      */
-    public function show($id) {
-        $item = Contenido::encontrar($id)[0];
+    public function contact() {
         $ultimonumero = Contenido::ultimoElemento(4);
         $analisismasvisto = Contenido::masvisto(1);
         $previewmasvisto = Contenido::masvisto(2);
         $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('contenido.show', compact(['item','ultimonumero'
+        return view('info.contact', compact(['item','ultimonumero'
+            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+    }
+    
+    /**
+     * 
+     *
+     * @return 
+     */
+    public function origins() {
+        $ultimonumero = Contenido::ultimoElemento(4);
+        $analisismasvisto = Contenido::masvisto(1);
+        $previewmasvisto = Contenido::masvisto(2);
+        $articulosmasvistos = Contenido::articulosmasvistos();
+        return view('info.origins', compact(['item','ultimonumero'
             ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
     }
 }

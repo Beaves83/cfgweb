@@ -11,7 +11,8 @@
         <div class="container">
             <div class="">
                 <h3 class="text-justify">{{ $item->titulo }}</h3>               
-                   <p class="text-center" class="text-justify">IMAGEN</p>
+                   <img src="{{ $item->imagen }}" 
+                                class="img-thumbnail text-center" alt="imagen" width="500" height="300">
                   <p class="text-center small"> <strong>Autor:</strong>  {{ $item->username }} 
                        <strong>Fecha:</strong>  {{ date('d-M-y', strtotime($item->created_at)) }}
                    <strong>Categoría:</strong>  {{ $item->categoria }}
