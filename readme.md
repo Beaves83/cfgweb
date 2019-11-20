@@ -1,74 +1,75 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Tabla de Contenidos :card_index:
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+* [Descripción del proyecto](#web-Revista-de-videojuegos-(GamesWeb))
+* [Construido con](#construido-con)
+* [Instalación](#instalacion)
+* [Autor](#autor)
+* [Versión](#version)
 
-## About Laravel
+# Web Revista de videojuegos (GamesWeb) :video_game:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+_Estamos antes una web para mostrar el contenido de una revista de videojuegos._
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Cuenta con diferentes pestañas donde ver un listado de los **análisis**, **reviews**, **reportajes**,... y dos columnas laterales donde encontramos información relativa a la empresa y además información destacada como puede ser el **último número publicado** de esta, el **análisis más leido**, el **preview más leido** o las **noticias destacadas**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El sitema cuenta con tres perfiles disponibles, con los cuales accederemos a distintas opciones que nos ofrede el GRM. Los tres roles
+que tenemos serán **Usuario**, **Gestor** y **Administrador**.  
 
-## Learning Laravel
+**Usuario** - Tendrá acceso a todos los listados. 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Gestor** - Tendrá acceso a todos los listados. Podrá gestionar el contenido como la creación de nuevos post, la modificación de entradas, o la eliminación de contenido. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Administrador** - Dispondrá del mismo acceso que el Gestor pero además cuenta con la posibilidad de gestionar usuarios (CRUD).
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Construido con 🛠️
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+_El proyecto ha sido creado con:_
 
-## Contributing
+* [PHP](https://www.php.net/) - PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.
+* [Laravel](https://laravel.com/) - Laravel es un framework de código abierto para desarrollar aplicaciones y servicios web con PHP 5 y PHP 7.
+* [Laravel-Blade](https://laravel.com/docs/5.8/blade) - Blade es el motor de plantillas simple pero potente provisto con Laravel.
+* [Laravel-Eloquent](https://laravel.com/docs/5.8/eloquent) - El ORM Eloquent incluido con Laravel proporciona una implementación de ActiveRecord hermosa y simple para trabajar con su base de datos.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Instalación :floppy_disk:
 
-## Security Vulnerabilities
+_Para ejecutar el proyecto necesitas seguir los siguientes pasos:_
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Abrimos la línea de comandos y llegamos a la ruta donde vamos a clonar la aplicación.
+```
+$ cd ../mvc-laravel
+$ git clone https://github.com/Beaves83/cfgweb.git
+$ composer install
+```
+Crear una base de datos llamada cfgweb2019. Modificamos el fichero .env para añadir el nombre de la base de datos, nombre de usuario y contraseña. Volvemos a la línea de comandos.
+```
+$ php artisan migrate --seed
+```
+Este último paso tardará unos minutos porque vamos a generar datos de prueba.
 
-## License
+_NOTA: Si ya he descargado el proyecto anteriormente, tendría que refactorizar todo y hacer una nueva población de la BBDD para que todo nos funcione bien con el siguiente comando:_
+```
+php artisan migrate:refresh --seed
+```
+Por defecto se crearán tres usuarios con los cuales podemos realizar las pruebas, un usuario para cada rol distintos.
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Usuario:** admin@email.es  
+**Contraseña:** admin@email.es  
+**Rol:** Administrador  
+
+**Usuario:** usuario@email.es  
+**Contraseña:** usuario@email.es  
+**Rol:** User  
+
+**Usuario:** gestor@email.es  
+**Contraseña:** gestor@email.es  
+**Rol:** Gestor  
+
+
+## Autor :man:
+
+* **Bibiano Ruiz** - *Creador del proyecto.* - [beaves83](https://github.com/Beaves83/)
+
+## Versión 0.2 :computer:
+
+_El proyecto no está completo, aun no tengo terminada la primera versión._
