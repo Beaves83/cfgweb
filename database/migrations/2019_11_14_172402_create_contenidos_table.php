@@ -26,11 +26,15 @@ class CreateContenidosTable extends Migration
             $table->unsignedBigInteger('imagen_id')->nullable();
             $table->unsignedBigInteger('autor_id');
             $table->unsignedBigInteger('visto')->default(0);
+            $table->unsignedInteger('desarrolladora_id')->nullable();
+            $table->unsignedInteger('distribuidora_id')->nullable();
             $table->timestamps();
             
             $table->foreign('tipocontenido_id')->references('id')->on('tipocontenido');
             $table->foreign('imagen_id')->references('id')->on('imagenes');
             $table->foreign('autor_id')->references('id')->on('users');
+            $table->foreign('desarrolladora_id')->references('id')->on('empresas');
+            $table->foreign('distribuidora_id')->references('id')->on('empresas');
 
         });
     }

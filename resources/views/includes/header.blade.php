@@ -56,6 +56,16 @@
                         <!--                                    <div class="dropdown-divider"></div>-->
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle bg-warning text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mantenimiento
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">             
+                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/') }}">Desarrolladora/distribuidora</a>
+                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/') }}">Etiquetas</a>
+                        <!--                                    <div class="dropdown-divider"></div>-->
+                    </div>
+                </li>
 
                 @if ( Auth::user()->hasRole('admin') )
                 <li class="nav-item dropdown">

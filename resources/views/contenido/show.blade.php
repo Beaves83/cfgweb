@@ -21,8 +21,9 @@
             <!--                <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>-->
                             <div class="text-success text-left ml-3 mt-1">
                                 <h6>Desarrolla</h6></div>
+                            <hr class="m-0">
                             <div class="text-success text-center">
-                                <h5>DESARROLLADORA</h5></div>
+                                <h5>{{ $item->desarrolladora }}</h5></div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -30,8 +31,9 @@
             <!--                <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>-->
                             <div class="text-success text-left ml-3 mt-1">
                                 <h6>Distribuye</h6></div>
+                            <hr class="m-0">
                             <div class="text-success text-center">
-                                <h5>DISTRIBUIDORA</h5></div>
+                                <h5>{{ $item->distribuidora }}</h5></div>
                         </div>
                     </div>
                 </div>

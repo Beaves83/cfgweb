@@ -43,12 +43,20 @@ class ContenidoController extends Controller
      * @return a view.
      */
     public function show($id) {
-        $item = Contenido::encontrar($id)[0];
+        
+        $item = Contenido::encontrar($id);
         $ultimonumero = Contenido::ultimoElemento(4);
         $analisismasvisto = Contenido::masvisto(1);
         $previewmasvisto = Contenido::masvisto(2);
         $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('contenido.show', compact(['item','ultimonumero'
+        
+        if($item->count() < 4){
+            return view('revista.show', compact(['item','ultimonumero'
             ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+        } else {
+            return view('contenido.show', compact(['item','ultimonumero'
+            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+        }
+        
     }
 }
