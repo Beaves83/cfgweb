@@ -12,12 +12,12 @@ Route::get('/info/archievements', 'InfoController@archievements')->name('info.ar
 Route::get('/info/contact', 'InfoController@contact')->name('info.contact');
 Route::get('/info/origins', 'InfoController@origins')->name('info.origins');
 
+//Admin
+Route::get('/admin/estadisticas', 'AdminController@estadisticas')->name('admin.estadisticas');
+
 //Rutas genéricas
 Route::get('/', 'ContenidoController@welcome');
-//Route::get('/', function () {
-//    $contenidos = Contenido::destacado();  
-//    return view('welcome', compact(['contenidos']));
-//});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Rutas seguridad

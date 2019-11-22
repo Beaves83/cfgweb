@@ -11,6 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ URL::to('contenidos/4') }}">Revistas</a>
                 </li>
@@ -35,13 +36,51 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ URL::to('contenidos/3') }}">Entrevistas</a>
                 </li>
-                @guest
-
                 @else 
+               @if ( Auth::user()->hasRole('user'))
+               <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/4') }}">Revistas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/5') }}">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/1') }}">Análisis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/2') }}">Previews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/7') }}">Reportajes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/8') }}">Sorteos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/6') }}">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ URL::to('contenidos/3') }}">Entrevistas</a>
+                </li>
+               @endif
+               
                 @if ( Auth::user()->hasRole('admin') OR Auth::user()->hasRole('gestor'))
-                <!--                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ URL::to('contenido/create') }}">Crear</a>
-                                            </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones Menú
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+                        <a class="nav-link" href="{{ URL::to('contenidos/4') }}">Revistas</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/5') }}">Noticias</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/1') }}">Análisis</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/2') }}">Previews</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/7') }}">Reportajes</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/8') }}">Sorteos</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/6') }}">Videos</a>
+                        <a class="nav-link" href="{{ URL::to('contenidos/3') }}">Entrevistas</a>
+                    </div>
+
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle bg-warning text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Crear
@@ -67,10 +106,13 @@
                     </div>
                 </li>
 
-                @if ( Auth::user()->hasRole('admin') )
+
+                @endif
+                 @if ( Auth::user()->hasRole('admin') )
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle bg-warning text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Gestión Usuarios
+                        Gest. Usuarios
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ URL::to('usuarios/create') }}">Nuevo</a>
@@ -79,9 +121,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('estadisticas') }}">Estadisticas</a>
+                    <a class="nav-link bg-warning text-dark" href="{{ URL::to('admin/estadisticas') }}">Estadisticas</a>
                 </li>
-                @endif
                 @endif
                 @endguest
             </ul>
@@ -107,7 +148,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
+                                   document.getElementById('logout-form').submit();">
                             {{ __('Desconectar') }}
                         </a>
 
