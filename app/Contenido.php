@@ -16,7 +16,8 @@ class Contenido extends Model
                 ->join('tipocontenido', 'tipocontenido.id', '=', 'contenidos.tipocontenido_id')
                 ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
-                    ['contenidos.destacado', '=', true]
+                    ['contenidos.destacado', '=', true],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
                         ,'imagenes.descripcion AS imagen')
@@ -30,7 +31,8 @@ class Contenido extends Model
                 ->join('tipocontenido', 'tipocontenido.id', '=', 'contenidos.tipocontenido_id')
                 ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
-                    ['contenidos.tipocontenido_id', '=', $tipocontenido_id]
+                    ['contenidos.tipocontenido_id', '=', $tipocontenido_id],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
                         ,'imagenes.descripcion AS imagen')
@@ -56,7 +58,8 @@ class Contenido extends Model
                 ->leftjoin('enlaces', 'enlaces.revista_id', '=', 'contenidos.id')
                 ->leftjoin('tipoenlaces', 'tipoenlaces.id', '=', 'enlaces.tipoenlace_id')
                 ->where([
-                    ['contenidos.id', '=', $id]
+                    ['contenidos.id', '=', $id],
+                    ['contenidos.publicado', '=', true]
                 ])
                 
                 ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
@@ -76,7 +79,8 @@ class Contenido extends Model
                 ->leftjoin('empresas as desarrolladora', 'desarrolladora.id', '=', 'contenidos.desarrolladora_id')
                 ->leftjoin('empresas as distribuidora', 'distribuidora.id', '=', 'contenidos.distribuidora_id')
                 ->where([
-                    ['contenidos.id', '=', $id]
+                    ['contenidos.id', '=', $id],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->select('contenidos.*','users.name AS username','tipocontenido.texto AS categoria'
                         ,'imagenes.descripcion AS imagen','desarrolladora.nombre AS desarrolladora'
@@ -105,7 +109,8 @@ class Contenido extends Model
                 ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.tipocontenido_id', '=', $tipocontenido],
-                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)]
+                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->orderBy('id', 'desc')
                 ->select('contenidos.*','imagenes.descripcion AS imagen')
@@ -118,7 +123,8 @@ class Contenido extends Model
                 ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.tipocontenido_id', '=', $tipocontenido],
-                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)]
+                    ['contenidos.created_at', '>', Carbon::now()->subDays(60)],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->orderBy('visto', 'desc')
                 ->select('contenidos.*','imagenes.descripcion AS imagen')
@@ -131,6 +137,7 @@ class Contenido extends Model
                 ->join('imagenes', 'imagenes.id', '=', 'contenidos.imagen_id')
                 ->where([
                     ['contenidos.created_at', '>', Carbon::now()->subDays(60)],
+                    ['contenidos.publicado', '=', true]
                 ])
                 ->orderBy('visto', 'desc')
                 ->select('contenidos.*','imagenes.descripcion AS imagen')
@@ -157,5 +164,9 @@ class Contenido extends Model
     
     public function etiquetas() {
         return $this->belongsToMany(Etiqueta::class)->withTimestamps();
+    }
+    
+    public static function top($cantidad){
+        return Contenido::orderby("visto")->take($cantidad)->get();
     }
 }

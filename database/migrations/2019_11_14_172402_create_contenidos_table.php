@@ -17,6 +17,7 @@ class CreateContenidosTable extends Migration
         Schema::create('contenidos', function (Blueprint $table) {
             $table->bigIncrements('id');     
             $table->boolean('destacado')->default(false);
+            $table->boolean('publicado')->default(true);
             $table->string('introduccion',5000);
             $table->string('titular', 500)->nullable();
             $table->string('titulo',500);       

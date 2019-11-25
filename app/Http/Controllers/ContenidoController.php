@@ -11,14 +11,7 @@ use App\Cliente;
 class ContenidoController extends Controller
 {
     public function welcome() {
-        
-        $contenidos = Contenido::destacado();  
-        $ultimonumero = Contenido::ultimoElemento(4);
-        $analisismasvisto = Contenido::masvisto(1);
-        $previewmasvisto = Contenido::masvisto(2);
-        $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('welcome', compact(['contenidos','ultimonumero'
-            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+        return view('welcome');
     }
     /**
      * 
@@ -27,13 +20,8 @@ class ContenidoController extends Controller
      */
     public function index($id) {
         
-        $contenidos = Contenido::listado($id); 
-        $ultimonumero = Contenido::ultimoElemento(4);
-        $analisismasvisto = Contenido::masvisto(1);
-        $previewmasvisto = Contenido::masvisto(2);
-        $articulosmasvistos = Contenido::articulosmasvistos();
-        return view('welcome', compact(['contenidos','ultimonumero'
-            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+        $contenidos = Contenido::listado($id);
+        return view('welcome', compact(['contenidos']));
     }
     
     /**
@@ -45,18 +33,11 @@ class ContenidoController extends Controller
     public function show($id) {
         
         $item = Contenido::encontrar($id);
-        $ultimonumero = Contenido::ultimoElemento(4);
-        $analisismasvisto = Contenido::masvisto(1);
-        $previewmasvisto = Contenido::masvisto(2);
-        $articulosmasvistos = Contenido::articulosmasvistos();
         
         if($item->count() < 4){
-            return view('revista.show', compact(['item','ultimonumero'
-            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
+            return view('revista.show', compact(['item']));
         } else {
-            return view('contenido.show', compact(['item','ultimonumero'
-            ,'analisismasvisto', 'previewmasvisto','articulosmasvistos']));
-        }
-        
+            return view('contenido.show', compact(['item']));
+        }       
     }
 }
