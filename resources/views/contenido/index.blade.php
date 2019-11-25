@@ -10,7 +10,7 @@
     <center>
         <div class="container">
             <div class="">
-                <table id="tablagenerica" class="" data-page-length="7">
+                <table id="tablagenerica" class="" data-page-length="5">
                 <thead class="">
                     <tr>
                         <td style="border-bottom: none"></td>  
