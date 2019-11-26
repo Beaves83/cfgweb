@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 use App\Contenido;
 use App\Cliente;
+use App\Tipocontenido;
 
 class ContenidoController extends Controller
 {
@@ -39,5 +40,16 @@ class ContenidoController extends Controller
         } else {
             return view('contenido.show', compact(['item']));
         }       
+    }
+    
+    public function create($tipocontenido) {
+        //auth()->user()->authorizeRoles(['admin','secretario']);
+//        $elemento = Contenido::find($id);
+//        
+        //$tipos = Tipocontenido::all();
+        $tipos = Tipocontenido::find($tipocontenido);
+//        $municipios = Municipio::all('city_name','id','region_id');
+        return view('contenido.create', compact(['tipocontenido','tipos']));
+        //return view('clientes.create', compact(['provincias','municipios']));
     }
 }

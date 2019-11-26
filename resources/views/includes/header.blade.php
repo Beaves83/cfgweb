@@ -40,12 +40,12 @@
                         Crear
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">             
-                        <a class="dropdown-item" href="{{ URL::to('contenido/analisis/crear') }}">Análisis</a>
-                        <a class="dropdown-item" href="{{ URL::to('contenido/preview/crear') }}">Preview</a>
-                        <a class="dropdown-item" href="{{ URL::to('contenido/noticia/crear') }}">Noticia</a>
-                        <a class="dropdown-item" href="{{ URL::to('contenido/revista/crear') }}">Revista</a>  
-                        <a class="dropdown-item" href="{{ URL::to('contenido/video/crear') }}">Video</a>  
-                        <a class="dropdown-item" href="{{ URL::to('contenido/sorteo/crear') }}">Sorteo</a>  
+                        <a class="dropdown-item" href="{{ URL::to('contenido/analisis/create') }}">Análisis</a>
+                        <a class="dropdown-item" href="{{ URL::to('contenido/create/2') }}">Preview</a>
+                        <a class="dropdown-item" href="{{ URL::to('contenido/create/5') }}">Noticia</a>
+                        <a class="dropdown-item" href="{{ URL::to('contenido/revista/create') }}">Revista</a>  
+                        <a class="dropdown-item" href="{{ URL::to('contenido/create/6') }}">Video</a>  
+                        <a class="dropdown-item" href="{{ URL::to('contenido/sorteo/create') }}">Sorteo</a>  
                         <!--                                    <div class="dropdown-divider"></div>-->
                     </div>
                 </li>

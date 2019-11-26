@@ -16,7 +16,7 @@ Route::put('analisis/{id}', 'AnalisisController@update')->name('analisis.update'
 Route::delete('analisis/{id}', 'AnalisisController@destroy')->name('analisis.destroy');
 
 //Cotenido generico: Noticias, ¿sorteo?, videos, entrevista, previews, reportajes,... 
-Route::get('noticia/create', 'ContenidoController@create')->name('Contenido.create');
+Route::get('contenido/create/{tipocontenido}', 'ContenidoController@create')->name('contenido.create')->where('id', '[0-9]+');
 Route::post('noticia', 'ContenidoController@store')->name('Contenido.store');
 Route::get('noticia/{id}/edit', 'ContenidoController@edit')->name('Contenido.edit');
 Route::put('noticia/{id}', 'ContenidoController@update')->name('Contenido.update');

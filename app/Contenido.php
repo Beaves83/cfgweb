@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
+use App\Tipocontenido;
 
 class Contenido extends Model
 {
@@ -169,4 +170,5 @@ class Contenido extends Model
     public static function top($cantidad){
         return Contenido::orderby("visto")->take($cantidad)->get();
     }
+    
 }
