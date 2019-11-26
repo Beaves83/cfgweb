@@ -1,7 +1,6 @@
 <?php
 use App\Contenido;
 
-
 //Revista
 Route::get('revista/create', 'RevistaController@create')->name('revista.create');
 Route::post('revista', 'RevistaController@store')->name('revista.store');
@@ -43,4 +42,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Rutas seguridad
 Auth::routes();
 
+
+//Mantenimientos
+Route::get('/mantenimiento/desarrolladoras', 'MantenimientoController@desarrolladoras')->name('mantenimiento.desarrolladoras.index');
+Route::get('/mantenimiento/etiquetas', 'MantenimientoController@etiquetas')->name('mantenimiento.etiquetas.index');
+Route::get('/mantenimiento/usuarios', 'MantenimientoController@usuarios')->name('mantenimiento.usuarios.index');
 

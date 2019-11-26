@@ -12,56 +12,10 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/4') }}">Revistas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/5') }}">Noticias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/1') }}">Análisis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/2') }}">Previews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/7') }}">Reportajes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/8') }}">Sorteos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/6') }}">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/3') }}">Entrevistas</a>
-                </li>
+                    @include('includes.menugenerico')
                 @else 
                @if ( Auth::user()->hasRole('user'))
-               <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/4') }}">Revistas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/5') }}">Noticias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/1') }}">Análisis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/2') }}">Previews</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/7') }}">Reportajes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/8') }}">Sorteos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/6') }}">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::to('contenidos/3') }}">Entrevistas</a>
-                </li>
+                    @include('includes.menugenerico')
                @endif
                
                 @if ( Auth::user()->hasRole('admin') OR Auth::user()->hasRole('gestor'))
@@ -100,8 +54,8 @@
                         Mantenimiento
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">             
-                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/') }}">Desarrolladora/distribuidora</a>
-                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/') }}">Etiquetas</a>
+                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/desarrolladoras') }}">Desarrolladora/distribuidora</a>
+                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/etiquetas') }}">Etiquetas</a>
                         <!--                                    <div class="dropdown-divider"></div>-->
                     </div>
                 </li>
@@ -116,7 +70,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ URL::to('usuarios/create') }}">Nuevo</a>
-                        <a class="dropdown-item" href="{{ URL::to('usuarios') }}">Listado</a>
+                        <a class="dropdown-item" href="{{ URL::to('mantenimiento/usuarios') }}">Listado</a>
                         <!--                                    <div class="dropdown-divider"></div>-->
                     </div>
                 </li>
